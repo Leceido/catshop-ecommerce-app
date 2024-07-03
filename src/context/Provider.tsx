@@ -10,12 +10,13 @@ interface ProviderProps {
 export default function Provider({children}: ProviderProps) {
     const [cartItems, setCartItems] = useState([])
     const [valorTotal, setValorTotal] = useState([])
+    const [preference_Id, setPreference_Id] = useState(null)
 
     useEffect(() => {
         let objects:any = []
         for (let i = 0; i < localStorage.length; i++) {
             const key = localStorage.key(i)
-            if (key !== null && key !== 'nextauth.message' && key !== 'ally-supports-cache') {
+            if (key !== null && key.startsWith("id:")) {
                 const value = localStorage.getItem(key)
                 if (typeof value === 'string') {
                     try {
@@ -37,7 +38,9 @@ export default function Provider({children}: ProviderProps) {
         cartItems,
         setCartItems,
         valorTotal,
-        setValorTotal
+        setValorTotal,
+        preference_Id,
+        setPreference_Id
     }
 
     return (

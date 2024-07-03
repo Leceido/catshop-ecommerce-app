@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mercadopago/sdk-react": "^0.0.19",
     "next": "latest",
     "next-auth": "^4.24.5",
     "react": "latest",

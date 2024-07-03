@@ -12,7 +12,7 @@ export default function CarrinhoComprasComponent({ data }: any) {
     function excluirProduto(id:any) {
         const obj = cartItems.filter((item:any) => item.id !== id)
         setCartItems(obj)
-        localStorage.removeItem(id)
+        localStorage.removeItem(`id:${id}`)
     }
 
 

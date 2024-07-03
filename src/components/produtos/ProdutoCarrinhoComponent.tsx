@@ -24,14 +24,14 @@ export default function ProdutoCarrinhoComponent({ produto }: any) {
         setCartItems(updatedCartItems)
 
 
-        let produtoStorage = localStorage.getItem(`${produto.id}`);
+        let produtoStorage = localStorage.getItem(`id:${produto.id}`);
         //@ts-ignore
         let produtoJson = JSON.parse(produtoStorage);
         produtoJson.quantidade_selecionada = Number(quantidade);
 
         const updatedJsonString = JSON.stringify(produtoJson);
 
-        localStorage.setItem(`${produto.id}`, updatedJsonString);
+        localStorage.setItem(`id:${produto.id}`, updatedJsonString);
 
         setValorPrdt(produto.preco * Number(quantidade));
     }, [quantidade, produto.preco]);
@@ -71,7 +71,6 @@ export default function ProdutoCarrinhoComponent({ produto }: any) {
                     <h1 className="text-xl font-bold">R${valorPrdt}</h1>
                 </div>
             </div>
-
         </div>
     )
 }

@@ -35,7 +35,7 @@ export default function HomeProdutosComponent({ data }: any) {
         } else {
             setCountCartItems(countCartItems + 1)
             produto.quantidade_selecionada = 1
-            localStorage.setItem(`${produto.id}`, JSON.stringify(produto))
+            localStorage.setItem(`id:${produto.id}`, JSON.stringify(produto))
             setCartItems([...cartItems, { ...produto, quantidade_selecionada: 1 }]);
 
         }
@@ -63,7 +63,7 @@ export default function HomeProdutosComponent({ data }: any) {
                     </div>
 
                     <div className="text-primary-l_green text-md sm:text-3xl font-bold text-center align-bottom">
-                        R${produto.preco}
+                        R${Number(produto.preco).toFixed(2)}
                     </div>
                     <div className="text-center space-x-2 align-bottom flex flex-row items-center justify-center m-1 mb-3 mt-3">
                         <Link onClick={() => handleAddCart(produto)} href='/carrinho' className="text-sm sm:text-xl bg-primary-l_green text-primary-orange hover:bg-primary-l_green/90 hover:text-primary-orange px-2 py-1 rounded-full">

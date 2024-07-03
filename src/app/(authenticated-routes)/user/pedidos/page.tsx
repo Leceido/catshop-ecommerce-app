@@ -15,7 +15,6 @@ export default async function pedidos() {
 
     const data = await response.json()
     const dataReverse = await data.pedidos.reverse()
-    
 
     return (
         <div>
